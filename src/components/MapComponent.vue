@@ -14,6 +14,7 @@ import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { RZ } from '../data/data.js'
 import { useSpoiler } from '../composables/useSpoiler.js'
+import { asset } from '../assets.js'
 
 const mapDiv = ref(null)
 const router = useRouter()
@@ -69,7 +70,7 @@ onMounted(async () => {
     attributionControl: false,
     maxBounds: [[-120, -120], [1120, 1120]],
   })
-  L.imageOverlay('/assets/img/world_map.png', [[0, 0], [1000, 1000]]).addTo(map)
+  L.imageOverlay(asset('assets/img/world_map.png'), [[0, 0], [1000, 1000]]).addTo(map)
   map.setView([500, 500], 0)
   buildMarkers()
 

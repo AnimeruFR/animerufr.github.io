@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rezero.exemple/sitemap.xml
+Sitemap: https://animerufr.github.io/ReZero/sitemap.xml

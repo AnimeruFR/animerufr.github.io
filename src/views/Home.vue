@@ -22,7 +22,7 @@
           <p class="lead" v-html="RZ.work.intro"></p>
           <router-link to="/oeuvre" class="btn" style="margin-top:14px">En savoir plus</router-link>
         </div>
-        <div class="media reveal"><img src="/assets/img/key-subaru-emilia.jpg" alt="Subaru & Emilia" loading="lazy"></div>
+        <div class="media reveal"><img :src="asset('assets/img/key-subaru-emilia.jpg')" alt="Subaru & Emilia" loading="lazy"></div>
       </div>
       <div class="stats reveal" style="margin-top:70px">
         <div class="stat"><div class="n">2016</div><div class="l">Première saison</div></div>
@@ -50,6 +50,7 @@
 import { onMounted } from 'vue'
 import { RZ } from '../data/data.js'
 import { fillCircles } from '../fx.js'
+import { asset } from '../assets.js'
 
 const rbd = () => {
   if (typeof window !== 'undefined' && window.__fx) window.__fx.rbd()

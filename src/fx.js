@@ -55,9 +55,35 @@ export function initFx() {
 
   /* Return by Death */
   const rbd=document.createElement("div"); rbd.id="rbd"; rbd.innerHTML='<div class="hand">🖐</div><div class="h">死に戻り<br><span style="font-size:.4em;letter-spacing:.3em">RETURN BY DEATH</span></div>'; document.body.appendChild(rbd);
+
+  /* « Call of the Witch » — le vrai son de l'appel de la Sorcière. Piste choisie
+     selon la progression (mode spoiler) : avant l'arc 6, la version originale ;
+     à partir de l'arc 6 (ou « tout vu »), la version tardive. Repli silencieux
+     sur la nappe synthétique si l'autoplay est bloqué ou le fichier absent. */
+  const BASE = import.meta.env.BASE_URL;
+  const witch = {
+    pre: new Audio(BASE + "assets/audio/call-of-the-witch.mp3"),
+    post: new Audio(BASE + "assets/audio/call-of-the-witch-2.mp3"),
+  };
+  Object.values(witch).forEach(a => { a.preload = "auto"; });
+  let witchFade = null;
+  function playWitchCall(){
+    try{
+      const lvl = parseInt(localStorage.getItem("rz-spoiler-arc"), 10);
+      const a = (!Number.isNaN(lvl) && lvl >= 6) ? witch.post : witch.pre;
+      clearInterval(witchFade); [witch.pre, witch.post].forEach(x => { x.pause(); });
+      a.currentTime = 0; a.volume = 0.85;
+      a.play().catch(() => {});   // autoplay refusé → la nappe synthétique suffit
+      witchFade = setTimeout(() => {
+        witchFade = setInterval(() => { if (a.volume > 0.07) a.volume -= 0.07; else { a.pause(); clearInterval(witchFade); } }, 70);
+      }, 5000);
+    }catch(e){}
+  }
+
   let rbdBusy=false;
   function playRbd(){ if(rbdBusy) return; rbdBusy=true; rbd.classList.add("on");
-    try{ const AC=window.AudioContext||window.webkitAudioContext; const ac=new AC(); if(ac.state==="suspended")ac.resume(); const now=ac.currentTime; const m=ac.createGain(); m.gain.value=.9; m.connect(ac.destination);
+    playWitchCall();
+    try{ const AC=window.AudioContext||window.webkitAudioContext; const ac=new AC(); if(ac.state==="suspended")ac.resume(); const now=ac.currentTime; const m=ac.createGain(); m.gain.value=.55; m.connect(ac.destination);
       const nb=ac.createBuffer(1,ac.sampleRate*2,ac.sampleRate); const nd=nb.getChannelData(0); for(let i=0;i<nd.length;i++)nd[i]=Math.random()*2-1;
       
       // Bruit de fond angoissant (static)
@@ -67,9 +93,8 @@ export function initFx() {
       (()=>{const o=ac.createOscillator(),g=ac.createGain();o.type="sine";o.frequency.setValueAtTime(150,now);o.frequency.exponentialRampToValueAtTime(28,now+.6);g.gain.setValueAtTime(.0001,now);g.gain.exponentialRampToValueAtTime(.9,now+.02);g.gain.exponentialRampToValueAtTime(.0001,now+.7);o.connect(g);g.connect(m);o.start(now);o.stop(now+.75);})();
       [.55,.9,1.45].forEach(t=>{const s=now+t,o=ac.createOscillator(),g=ac.createGain();o.type="sine";o.frequency.setValueAtTime(75,s);o.frequency.exponentialRampToValueAtTime(38,s+.18);g.gain.setValueAtTime(.0001,s);g.gain.exponentialRampToValueAtTime(.85,s+.04);g.gain.exponentialRampToValueAtTime(.0001,s+.32);o.connect(g);g.connect(m);o.start(s);o.stop(s+.34);});
       
-      // L'appel de la sorcière (hurlement strident)
-      (()=>{const t=now+2.2,o=ac.createOscillator(),g=ac.createGain(),lp=ac.createBiquadFilter();o.type="sawtooth";o.frequency.setValueAtTime(60,t);o.frequency.exponentialRampToValueAtTime(1600,t+1.4);lp.type="lowpass";lp.frequency.setValueAtTime(400,t);lp.frequency.exponentialRampToValueAtTime(5000,t+1.4);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.22,t+.3);g.gain.exponentialRampToValueAtTime(.0001,t+1.5);o.connect(lp);lp.connect(g);g.connect(m);o.start(t);o.stop(t+1.55);})();
-      
+      // (le hurlement synthétisé est remplacé par le vrai « Call of the Witch » ci-dessus,
+      //  la nappe static + battement reste comme lit atmosphérique sous la piste)
       setTimeout(()=>{try{ac.close();}catch(e){}},4500);
     }catch(e){}
     setTimeout(()=>{ rbd.classList.remove("on"); rbdBusy=false; }, 4300);

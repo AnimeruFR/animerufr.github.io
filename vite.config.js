@@ -4,6 +4,9 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { resolve } from 'path'
 
 export default defineConfig({
+  // Déployé sous https://animerufr.github.io/ReZero/ (GitHub Pages, dépôt « ReZero »).
+  // Pour un déploiement à la racine (dépôt renommé animerufr.github.io), mettre base: '/'.
+  base: '/ReZero/',
   plugins: [
     vue(),
     VitePWA({

@@ -62,7 +62,7 @@
         <div class="quiz-result">
           <span class="eyebrow">Tu es…</span>
           <router-link :to="'/personnage/' + pResult.id" class="pres-portrait" :style="{'--c': pResult.color}">
-            <img :src="'/assets/img/' + pResult.id + '.webp'" :alt="pResult.name" @error="$event.target.src='/assets/img/hero.jpg'">
+            <img :src="asset('assets/img/' + pResult.id + '.webp')" :alt="pResult.name" @error="$event.target.src=asset('assets/img/hero.jpg')">
           </router-link>
           <h2 class="pres-name" :style="{color: pResult.color}">{{ pResult.name }}</h2>
           <p class="pres-epi">{{ pResult.epi }}</p>
@@ -82,6 +82,7 @@ import { ref, computed } from 'vue'
 import { knowledge, knowledgeStars, personalityQuestions } from '../data/quiz.js'
 import { characters } from '../data/characters.js'
 import { useSpoiler } from '../composables/useSpoiler.js'
+import { asset } from '../assets.js'
 
 const { isSpoiler, levelLabel } = useSpoiler()
 const mode = ref('knowledge')

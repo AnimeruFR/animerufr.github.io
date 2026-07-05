@@ -15,7 +15,7 @@
     <div v-show="currentTab === 'mabeasts'" class="grid cols2" style="margin-top:24px">
       <div v-for="b in mabeasts" :key="b.name" class="card reveal best-card">
         <SpoilerGate :arc="b.arc || 0">
-          <img v-if="b.img" :src="b.img" :alt="b.name" class="best-img" loading="lazy" decoding="async" />
+          <img v-if="b.img" :src="asset(b.img)" :alt="b.name" class="best-img" loading="lazy" decoding="async" />
           <span class="num">{{ b.creator }}</span>
           <h3>{{ b.name }}</h3>
           <p class="best-desc">{{ b.desc }}</p>
@@ -52,6 +52,7 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import SpoilerGate from '../components/SpoilerGate.vue'
+import { asset } from '../assets.js'
 
 const { t } = useI18n()
 const currentTab = ref('mabeasts')

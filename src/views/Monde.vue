@@ -4,7 +4,7 @@
     <h1 class="ttl">Monde & <span class="accent">Magie</span></h1>
     
     <h2 class="sec-h reveal">Carte Interactive du Continent</h2>
-    <div class="map-container reveal" style="height: 600px; border-radius: 12px; overflow: hidden; margin-top: 24px; border: 1px solid rgba(255,255,255,0.1);">
+    <div class="map-container reveal" style="height: clamp(360px, 62vh, 600px); border-radius: 12px; overflow: hidden; margin-top: 24px; border: 1px solid var(--border);">
       <MapComponent />
     </div>
 

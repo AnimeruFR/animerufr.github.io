@@ -18,7 +18,7 @@
             <div v-if="isMasked(c)" class="ent ent-masked reveal" :class="{'img-wait': !loaded[c.id]}" role="button" tabindex="0"
               :aria-label="'Personnage masqué (arc ' + c.arc + ') — activer pour révéler'"
               @click="revealed[c.id] = true" @keydown.enter="revealed[c.id] = true">
-              <img :src="'/assets/img/' + c.id + '.webp'" class="lazy-img" :class="{loaded: loaded[c.id]}"
+              <img :src="asset('assets/img/' + c.id + '.webp')" class="lazy-img" :class="{loaded: loaded[c.id]}"
                 alt="" aria-hidden="true" loading="lazy" decoding="async" @load="loaded[c.id] = true">
               <div class="veil"></div>
               <div class="mask-meta">
@@ -29,7 +29,7 @@
             </div>
             <router-link v-else :to="'/personnage/'+c.id" class="ent reveal" :class="{'img-wait': !loaded[c.id]}" :style="{'--c':c.color}"
               @mouseenter="prefetchDetail" @focus="prefetchDetail">
-              <img :src="'/assets/img/' + c.id + '.webp'" class="lazy-img" :class="{loaded: loaded[c.id]}"
+              <img :src="asset('assets/img/' + c.id + '.webp')" class="lazy-img" :class="{loaded: loaded[c.id]}"
                 :alt="c.name" loading="lazy" decoding="async" @load="loaded[c.id] = true">
               <div class="veil"></div><div class="aura"></div>
               <div class="meta"><div class="role">{{ c.role }}</div><h3>{{ c.name }}</h3></div>
@@ -56,6 +56,7 @@ import { groups, characters } from '../data/characters.js'
 import * as d3 from 'd3'
 import { useRouter } from 'vue-router'
 import { useSpoiler } from '../composables/useSpoiler.js'
+import { asset } from '../assets.js'
 
 const router = useRouter()
 const { level, isSpoiler } = useSpoiler()

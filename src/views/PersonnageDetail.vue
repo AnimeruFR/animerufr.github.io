@@ -20,7 +20,7 @@
 
     <!-- Bannière artwork large -->
     <header v-if="!blocked" class="char-banner" :style="{'--c': char.color || 'var(--violet)'}">
-      <div class="char-banner-bg" :style="{backgroundImage: `url(/assets/img/${char.id}.webp)`}"></div>
+      <div class="char-banner-bg" :style="{backgroundImage: `url(${asset('assets/img/' + char.id + '.webp')})`}"></div>
       <div class="char-banner-veil"></div>
       <div class="char-banner-inner">
         <span class="eyebrow" :style="{color: char.color || '#bdecff'}">{{ char.epi || char.group }}</span>
@@ -33,9 +33,9 @@
       <!-- Portrait -->
       <div class="media portrait-col">
         <div class="img-wrap" :style="{'--hc': char.color || '#fff', 'box-shadow': '0 0 40px ' + (char.color || '#fff') + '33'}">
-          <img :src="'/assets/img/' + char.id + '.webp'" :alt="'Portrait de ' + char.name"
+          <img :src="asset('assets/img/' + char.id + '.webp')" :alt="'Portrait de ' + char.name"
             decoding="async" fetchpriority="high" style="width:100%; height:auto; border-radius:12px; display:block;"
-            @error="$event.target.src='/assets/img/hero.jpg'" />
+            @error="$event.target.src=asset('assets/img/hero.jpg')" />
           <div class="char-badge" v-if="char.role" :style="{backgroundColor: char.color || '#fff'}">{{ char.role }}</div>
         </div>
       </div>
@@ -52,7 +52,7 @@
         <div v-if="tab === 'galerie'" class="char-gallery">
           <div class="char-gallery-grid">
             <button v-for="(g, i) in galleryImgs" :key="g" class="cg-item img-wait" :aria-label="'Agrandir l’image ' + (i + 1) + ' de ' + char.name" @click="openLightbox(i)">
-              <img :src="'/assets/img/' + g + '.webp'" class="lazy-img" :alt="char.name + ' — illustration ' + (i + 1)"
+              <img :src="asset('assets/img/' + g + '.webp')" class="lazy-img" :alt="char.name + ' — illustration ' + (i + 1)"
                 loading="lazy" decoding="async" @load="$event.target.classList.add('loaded'); $event.target.parentElement.classList.remove('img-wait')">
             </button>
           </div>
@@ -138,7 +138,7 @@
     <div v-if="lightboxIdx !== null" class="cg-lightbox" @click="lightboxIdx = null">
       <button class="cg-lb-close" aria-label="Fermer" @click="lightboxIdx = null">✕</button>
       <button class="cg-lb-nav cg-lb-prev" aria-label="Précédente" @click.stop="lbStep(-1)">‹</button>
-      <img :src="'/assets/img/' + galleryImgs[lightboxIdx] + '.webp'" :alt="char.name + ' — illustration ' + (lightboxIdx + 1)" @click.stop>
+      <img :src="asset('assets/img/' + galleryImgs[lightboxIdx] + '.webp')" :alt="char.name + ' — illustration ' + (lightboxIdx + 1)" @click.stop>
       <button class="cg-lb-nav cg-lb-next" aria-label="Suivante" @click.stop="lbStep(1)">›</button>
       <span class="cg-lb-count">{{ lightboxIdx + 1 }} / {{ galleryImgs.length }}</span>
     </div>
@@ -154,6 +154,7 @@ import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { characters } from '../data/characters.js'
 import { gallery } from '../data/gallery.js'
+import { asset } from '../assets.js'
 import { useSpoiler } from '../composables/useSpoiler.js'
 import SpoilerGate from '../components/SpoilerGate.vue'
 import TocSidebar from '../components/TocSidebar.vue'

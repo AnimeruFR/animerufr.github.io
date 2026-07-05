@@ -25,6 +25,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { asset } from '../assets.js'
 
 const { t } = useI18n()
 
@@ -42,7 +43,7 @@ const images = ref([
   { src: '/assets/img/loc-capital.webp', alt: 'Capitale Royale' },
   { src: '/assets/img/loc-pristella.webp', alt: 'Pristella, la cité aquatique' },
   { src: '/assets/img/world_map.png', alt: 'Carte du Continent' },
-])
+].map(i => ({ ...i, src: asset(i.src) })))
 
 const lightboxOpen = ref(false)
 const currentImg = ref(null)

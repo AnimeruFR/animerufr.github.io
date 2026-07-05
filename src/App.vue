@@ -69,6 +69,7 @@ import SpoilerPicker from './components/SpoilerPicker.vue'
 import { useHead } from '@unhead/vue'
 import { arcsDetail } from './data/arcs-detail.js'
 import { SITE_URL, SITE_NAME, DEFAULT_DESC, DEFAULT_OG_IMAGE } from './site.js'
+import { asset } from './assets.js'
 
 const router = useRouter()
 const route = useRoute()
@@ -204,7 +205,7 @@ const rbd = () => {
 const isHome = computed(() => route.name === 'home')
 const atmosBg = computed(() => {
   const k = ATMOS[route.name] || "bg-r2dj7j"
-  return `url(/assets/img/${k}.jpg)`
+  return `url(${asset('assets/img/' + k + '.jpg')})`
 })
 
 const goHome = () => {

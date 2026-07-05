@@ -4,7 +4,7 @@
     <h1 class="ttl">Re:Zero, l'<span class="accent">œuvre</span></h1>
     <div class="split" style="margin-top:26px">
       <div class="reveal"><p class="lead" v-html="RZ.work?.intro"></p><p v-html="RZ.work?.novel"></p><p v-html="RZ.work?.anime"></p></div>
-      <div class="media reveal"><img src="/assets/img/cover-vol1.webp" alt="Light novel volume 1" loading="lazy"></div>
+      <div class="media reveal"><img :src="asset('assets/img/cover-vol1.webp')" alt="Light novel volume 1" loading="lazy"></div>
     </div>
     
     <h2 class="sec-h reveal">Les trois versions</h2>
@@ -100,6 +100,7 @@ import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { RZ } from '../data/data.js'
 import SpoilerGate from '../components/SpoilerGate.vue'
+import { asset } from '../assets.js'
 
 const { t } = useI18n()
 
