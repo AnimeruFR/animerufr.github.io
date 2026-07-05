@@ -1,0 +1,17 @@
+export const routes = [
+  { path: '/', name: 'home', component: () => import('../views/Home.vue') },
+  { path: '/oeuvre', name: 'oeuvre', component: () => import('../views/Oeuvre.vue') },
+  { path: '/personnages', name: 'personnages', component: () => import('../views/Personnages.vue') },
+  { path: '/personnage/:id', name: 'personnage', component: () => import('../views/PersonnageDetail.vue') },
+  { path: '/monde', name: 'monde', component: () => import('../views/Monde.vue') },
+  { path: '/arcs', name: 'arcs', component: () => import('../views/Arcs.vue') },
+  { path: '/arc/:n', name: 'arc', component: () => import('../views/ArcDetail.vue') },
+  { path: '/episodes', name: 'episodes', component: () => import('../views/Episodes.vue') },
+  { path: '/musiques', name: 'musiques', component: () => import('../views/Musiques.vue') },
+  { path: '/lieux', name: 'lieux', component: () => import('../views/Lieux.vue') },
+  { path: '/bestiaire', name: 'bestiaire', component: () => import('../views/Bestiaire.vue') },
+  { path: '/glossaire', name: 'glossaire', component: () => import('../views/Glossaire.vue') },
+  { path: '/galerie', name: 'galerie', component: () => import('../views/Galerie.vue') },
+  { path: '/routes-if', name: 'routes-if', component: () => import('../views/RoutesIF.vue') },
+  { path: '/quiz', name: 'quiz', component: () => import('../views/Quiz.vue') },
+]

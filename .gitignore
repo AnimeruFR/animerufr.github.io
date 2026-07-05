@@ -1,0 +1,15 @@
+# Dépendances
+node_modules/
+
+# Build
+dist/
+.vite/
+.vite-ssg-temp/
+dev-dist/
+
+# Divers
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+git_history.txt

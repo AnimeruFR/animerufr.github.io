@@ -1,0 +1,1 @@
+﻿export default { nav: { home: "Home", oeuvre: "The Work", personnages: "Characters", monde: "World & Magic", arcs: "Arcs", lieux: "Locations", bestiaire: "Bestiary", glossaire: "Glossary", galerie: "Gallery", routesIf: "IF Routes" } }

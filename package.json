@@ -1,0 +1,33 @@
+{
+  "name": "rezero",
+  "version": "1.0.0",
+  "description": "Application web (SPA) dédiée à *Re:Zero kara Hajimeru Isekai Seikatsu* : personnages, monde & magie, arcs, lieux, bestiaire, glossaire et galerie. Construite en **Vue 3** (build global, sans chaîne de compilation), contenu en français, images hébergées en local.",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "sitemap": "node scripts/gen-sitemap.mjs",
+    "prebuild": "node scripts/gen-sitemap.mjs",
+    "build": "vite-ssg build",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@vue-leaflet/vue-leaflet": "^0.10.1",
+    "d3": "^7.9.0",
+    "leaflet": "^1.9.4",
+    "vite-plugin-pwa": "^1.3.0",
+    "vue": "^3.5.39",
+    "vue-i18n": "^11.4.6",
+    "vue-router": "^5.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.7",
+    "sharp": "^0.35.3",
+    "vite": "^8.1.2",
+    "vite-ssg": "^28.3.0",
+    "vitest": "^4.1.9"
+  }
+}
