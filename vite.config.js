@@ -12,6 +12,15 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'robots.txt', 'sitemap.xml'],
+      // Auto-réparation : le nouveau service worker remplace immédiatement l'ancien
+      // et purge les caches périmés (évite qu'un ancien bundle en cache casse le site
+      // après un changement de base ou de version).
+      workbox: {
+        cleanupOutdatedCaches: true,
+        clientsClaim: true,
+        skipWaiting: true,
+        navigateFallback: null,
+      },
       manifest: {
         name: 'Re:Zero — Encyclopédie',
         short_name: 'Re:Zero DB',

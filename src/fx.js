@@ -66,24 +66,40 @@ export function initFx() {
     post: new Audio(BASE + "assets/audio/call-of-the-witch-2.mp3"),
   };
   Object.values(witch).forEach(a => { a.preload = "auto"; });
-  let witchFade = null;
+  // « Déverrouillage » de l'audio au premier geste : les navigateurs exigent une
+  // activation utilisateur ; on la consomme une fois pour que la piste puisse
+  // ensuite démarrer même depuis un setTimeout (déclencheur « maintenir R »).
+  let witchUnlocked = false;
+  const unlockWitch = () => {
+    if (witchUnlocked) return; witchUnlocked = true;
+    Object.values(witch).forEach(a => {
+      a.muted = true;
+      a.play().then(() => { a.pause(); a.currentTime = 0; a.muted = false; }).catch(() => { a.muted = false; });
+    });
+  };
+  window.addEventListener("pointerdown", unlockWitch, { once: true });
+  window.addEventListener("keydown", unlockWitch, { once: true });
+
+  let witchFade = null, witchCur = null;
   function playWitchCall(){
     try{
       const lvl = parseInt(localStorage.getItem("rz-spoiler-arc"), 10);
       const a = (!Number.isNaN(lvl) && lvl >= 6) ? witch.post : witch.pre;
-      clearInterval(witchFade); [witch.pre, witch.post].forEach(x => { x.pause(); });
-      a.currentTime = 0; a.volume = 0.85;
-      a.play().catch(() => {});   // autoplay refusé → la nappe synthétique suffit
+      clearInterval(witchFade); clearTimeout(witchFade);
+      if (witchCur && witchCur !== a) witchCur.pause();
+      witchCur = a;
+      a.pause(); a.currentTime = 0; a.muted = false; a.volume = 1;
+      a.play().catch(() => {});   // si vraiment bloqué → la nappe synthétique prend le relais
       witchFade = setTimeout(() => {
-        witchFade = setInterval(() => { if (a.volume > 0.07) a.volume -= 0.07; else { a.pause(); clearInterval(witchFade); } }, 70);
-      }, 5000);
+        witchFade = setInterval(() => { if (a.volume > 0.08) a.volume -= 0.08; else { a.pause(); clearInterval(witchFade); } }, 70);
+      }, 5200);
     }catch(e){}
   }
 
   let rbdBusy=false;
   function playRbd(){ if(rbdBusy) return; rbdBusy=true; rbd.classList.add("on");
     playWitchCall();
-    try{ const AC=window.AudioContext||window.webkitAudioContext; const ac=new AC(); if(ac.state==="suspended")ac.resume(); const now=ac.currentTime; const m=ac.createGain(); m.gain.value=.55; m.connect(ac.destination);
+    try{ const AC=window.AudioContext||window.webkitAudioContext; const ac=new AC(); if(ac.state==="suspended")ac.resume(); const now=ac.currentTime; const m=ac.createGain(); m.gain.value=.3; m.connect(ac.destination);
       const nb=ac.createBuffer(1,ac.sampleRate*2,ac.sampleRate); const nd=nb.getChannelData(0); for(let i=0;i<nd.length;i++)nd[i]=Math.random()*2-1;
       
       // Bruit de fond angoissant (static)
