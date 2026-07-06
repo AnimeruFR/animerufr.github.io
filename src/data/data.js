@@ -154,7 +154,7 @@ RZ.beasts = [
 RZ.locations = [
   {id:"loc-capital", tag:"Royaume de Lugnica", name:"La Capitale Royale", img:"loc-capital", map:[556, 728],
    desc:"Cœur du Royaume du Dragon : marchés, bas-fonds et salle du trône. Théâtre de la toute première boucle de Subaru et de la Sélection Royale."},
-  {id:"loc-manoir", arc:2, tag:"Domaine Mathers", name:"Le manoir Roswaal", img:null, map:[565, 459],
+  {id:"loc-manoir", arc:2, tag:"Domaine Mathers", name:"Le manoir Roswaal", img:"loc-manoir", map:[565, 459],
    desc:"La résidence du margrave Roswaal L. Mathers, où Subaru devient domestique : la Bibliothèque interdite de Beatrice, les jumelles Rem et Ram, et le village d'Earlham en contrebas."},
   {id:"loc-arbre", arc:3, tag:"Grand-route de Lifaus", name:"Le grand arbre de Flugel", img:null, map:[687, 752],
    desc:"L'arbre gigantesque planté, dit-on, par le Sage Flugel il y a quatre siècles. C'est à son pied que se joue la bataille contre la Baleine Blanche."},
@@ -170,7 +170,7 @@ RZ.locations = [
    desc:"Mer de sable changeante infestée de vers géants, isolant la Tour de Pleiades du reste du monde."},
   {id:"loc-vollachia", arc:7, tag:"Le Sud", name:"L'Empire de Vollachia", img:"loc-vollachia", map:[326, 523],
    desc:"Vaste empire martial où seul le fort règne ; décor des arcs 7 à 9, sous l'empereur Vincent."},
-  {id:"loc-chaosflame", arc:7, tag:"Cité démoniaque", name:"Chaosflame", img:null, map:[228, 640],
+  {id:"loc-chaosflame", arc:7, tag:"Cité démoniaque", name:"Chaosflame", img:"loc-chaosflame", map:[228, 640],
    desc:"La « cité démoniaque » du sud de l'Empire, refuge des demi-humains sous la protection de Yorna Mishigure et de son château de Lapis écarlate."},
 ];
 RZ.terms = [

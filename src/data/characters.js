@@ -68,7 +68,7 @@ export const characters = [
 {
   id:"ram", arc:2, name:"Ram", kanji:"ラム", group:"principaux",
   color:"#ff7ea8", role:"Servante du manoir", race:"Oni (démon)", age:"Adolescente",
-  aff:"Camp Emilia", status:"Vivante", va:"Rie Murakawa",
+  aff:"Camp Emilia", status:"Vivante", va:"Rie Murakawa", vf:"Estelle Darazi",
   abilities:["Magie du Vent","Clairvoyance (synesthésie)","Esprit acéré"],
   epi:"La sœur aînée à la langue acérée",
   quote:"Barusu. Ne te surestime pas.",
@@ -85,7 +85,7 @@ export const characters = [
 {
   id:"beatrice", arc:2, name:"Beatrice", kanji:"ベアトリス", group:"principaux",
   color:"#e7c873", role:"Esprit · Bibliothèque interdite", race:"Esprit artificiel", age:"≈ 400 ans",
-  aff:"Camp Emilia", status:"Vivante", va:"Satomi Arai",
+  aff:"Camp Emilia", status:"Vivante", va:"Satomi Arai", vf:"Catherine Collomb",
   abilities:["Magie Yin (El Minya)","La Bibliothèque interdite (Forbidden Library)"],
   epi:"L'esprit de la Bibliothèque interdite",
   quote:"Betty attendait… ce contractant, je suppose.",
@@ -135,7 +135,7 @@ export const characters = [
 {
   id:"frederica", arc:4, name:"Frederica Baumann", kanji:"フレデリカ・バウマン", group:"roswaal",
   color:"#d99a4e", role:"Servante en chef", race:"Homme-bête", age:"Jeune femme",
-  aff:"Camp Emilia", status:"Vivante", va:null,
+  aff:"Camp Emilia", status:"Vivante", va:"Kaori Nazuka", vf:"Sophie Ouaknine",
   abilities:["Transformation bestiale","Force accrue"],
   epi:"La servante en chef aux crocs d'or",
   quote:"",
@@ -152,7 +152,7 @@ export const characters = [
 {
   id:"petra", arc:2, name:"Petra Leyte", kanji:"ペトラ・ライテ", group:"roswaal",
   color:"#e58aa0", role:"Servante du village", race:"Humaine", age:"Enfant",
-  aff:"Camp Emilia", status:"Vivante", va:null,
+  aff:"Camp Emilia", status:"Vivante", va:"Mariko Kouno", vf:"Marie Nédélec",
   abilities:["Couture","Vivacité d'esprit","Courage"],
   epi:"La jeune servante du village",
   quote:"",
@@ -169,7 +169,7 @@ export const characters = [
 {
   id:"otto", arc:3, name:"Otto Suwen", kanji:"オットー・スーウェン", group:"roswaal",
   color:"#8fae5a", role:"Marchand · Bras droit de Subaru", race:"Humain", age:"Jeune adulte",
-  aff:"Camp Emilia", status:"Vivant", va:"Tomoaki Maeno",
+  aff:"Camp Emilia", status:"Vivant", va:"Tomoaki Maeno", vf:"Alexandre Croo",
   abilities:["Bénédiction du langage animal","Sens des affaires"],
   epi:"Le marchand au sang-froid",
   quote:"",
@@ -300,7 +300,7 @@ export const characters = [
 {
   id:"reinhard", arc:1, name:"Reinhard van Astrea", kanji:"ラインハルト・ヴァン・アストレア", group:"chevaliers",
   color:"#e7c873", role:"Sword Saint · Chevalier de Felt", race:"Humain", age:"≈ 18 ans",
-  aff:"Camp Felt", status:"Vivant", va:"Yūichi Nakamura",
+  aff:"Camp Felt", status:"Vivant", va:"Yūichi Nakamura", vf:"Jean-Marco Montalto",
   abilities:["Bénédictions divines innombrables","Épée du Dragon, Reid","Maîtrise absolue de l'épée"],
   epi:"Le Sword Saint, le plus fort de Lugnica",
   quote:"Tant que je tiens debout, personne ne mourra ici.",
@@ -319,7 +319,7 @@ export const characters = [
 {
   id:"felix", arc:3, name:"Felix « Ferris » Argyle", kanji:"フェリックス・アーガイル", group:"chevaliers",
   color:"#2bbf9e", role:"Chevalier de Crusch", race:"Homme-bête (chat)", age:"Jeune adulte",
-  aff:"Camp Crusch", status:"Vivant", va:"Yumiri Hanamori",
+  aff:"Camp Crusch", status:"Vivant", va:"Yumiri Hanamori", vf:"Nelly Rebibo",
   abilities:["Magie de soin suprême (Eau)"],
   epi:"Le plus grand guérisseur du royaume",
   quote:"",
@@ -335,7 +335,7 @@ export const characters = [
 {
   id:"julius", arc:3, name:"Julius Juukulius", kanji:"ユリウス・ユークリウス", group:"chevaliers",
   color:"#c9a23a", role:"Chevalier d'Anastasia", race:"Humain", age:"Jeune adulte",
-  aff:"Camp Anastasia", status:"Vivant", va:null,
+  aff:"Camp Anastasia", status:"Vivant", va:"Takuya Eguchi", vf:"Alexandre Coadour",
   abilities:["Pacte avec six quasi-esprits","Escrime raffinée"],
   epi:"Le Chevalier le plus fin",
   quote:"",
@@ -415,7 +415,7 @@ export const characters = [
 {
   id:"regulus", arc:5, name:"Regulus Corneas", kanji:"レグルス・コルニアス", group:"sorcieres",
   color:"#c9b24a", role:"Archevêque de l'Avarice", race:"Humain", age:"Adulte",
-  aff:"Culte des Sorcières", status:"Vaincu", va:null,
+  aff:"Culte des Sorcières", status:"Vaincu", va:"Akira Ishida", vf:"Jérémy Prévost",
   abilities:["Le Monde Immobile (invulnérabilité)"],
   epi:"L'Archevêque de l'Avarice",
   quote:"",
@@ -479,7 +479,7 @@ export const characters = [
 {
   id:"pandora", arc:4, name:"Pandora", kanji:"パンドラ", group:"sorcieres",
   color:"#cfc4e0", role:"Sorcière de la Vanité", race:"Sorcière", age:"Inconnu",
-  aff:"Sorcière (indépendante)", status:"Inconnu", va:null,
+  aff:"Sorcière (indépendante)", status:"Inconnu", va:"Rie Kugimiya",
   abilities:["Manipulation de la réalité"],
   epi:"La Sorcière de la Vanité",
   quote:"",
@@ -512,8 +512,8 @@ export const characters = [
 /* ===== AUTRES ===== */
 {
   id:"elsa", arc:1, name:"Elsa Granhiert", kanji:"エルザ・グランヒルテ", group:"autres",
-  color:"#b6324a", role:"Assassin", race:"Humaine", age:"Adulte",
-  aff:"Mercenaire", status:"Vivante", va:null,
+  color:"#b6324a", role:"Assassin", race:"Vampire", age:"23 ans",
+  aff:"Mercenaire", status:"Décédée", va:"Mamiko Noto", vf:"Alice Taurand",
   abilities:["Couteaux (kukri)","Régénération anormale"],
   epi:"La Chasseuse de tripes",
   quote:"",
@@ -529,7 +529,7 @@ export const characters = [
 {
   id:"meili", arc:2, name:"Meili Portroute", kanji:"メィリィ・ポートルート", group:"autres",
   color:"#5b8eff", role:"Dresseuse de bêtes", race:"Humaine", age:"Enfant",
-  aff:"Assassin → Camp Emilia", status:"Vivante", va:null,
+  aff:"Assassin → Camp Emilia", status:"Vivante", va:"Eri Suzuki",
   abilities:["Contrôle des bêtes démoniaques"],
   epi:"La jeune dresseuse de bêtes",
   quote:"",
@@ -546,7 +546,7 @@ export const characters = [
 {
   id:"al", arc:3, name:"Al", kanji:"アル", group:"autres",
   color:"#d6a23a", role:"Chevalier de Priscilla", race:"Humain (autre monde)", age:"Adulte",
-  aff:"Camp Priscilla", status:"Vivant", va:null, vf:"Jeremy Zylberberg",
+  aff:"Camp Priscilla", status:"Vivant", va:"Keiji Fujiwara", vf:"Jeremy Zylberberg",
   abilities:["Combat au sabre","Un secret bien gardé"],
   epi:"Le chevalier masqué de Priscilla",
   quote:"",
@@ -562,7 +562,7 @@ export const characters = [
 {
   id:"theresia", arc:3, name:"Theresia van Astrea", kanji:"テレシア・ヴァン・アストレア", group:"autres",
   color:"#e0b0b8", role:"Précédente Sword Saint", race:"Humaine", age:"Décédée",
-  aff:"Maison Astrea", status:"Décédée", va:null,
+  aff:"Maison Astrea", status:"Décédée", va:"Minami Takahashi",
   abilities:["Sword Saint (jadis)"],
   epi:"La précédente Sword Saint",
   quote:"",
@@ -579,7 +579,7 @@ export const characters = [
 {
   id:"rom", arc:1, name:"Rom", kanji:"ロム爺", group:"autres",
   color:"#9a8f7a", role:"Receleur des bas-fonds", race:"Géant", age:"≈ 120-130 ans",
-  aff:"Camp Felt", status:"Vivant", va:"Mugihito",
+  aff:"Camp Felt", status:"Vivant", va:"Mugihito", vf:"Antoine Tomé",
   abilities:["Massue","Esprit stratégique redoutable"],
   epi:"Le vieux géant des bas-fonds",
   quote:"",
@@ -646,7 +646,7 @@ export const characters = [
 {
   id:"ricardo", arc:3, name:"Ricardo Welkin", kanji:"リカード・ウェルキン", group:"autres",
   color:"#b07840", role:"Capitaine du Croc de Fer", race:"Homme-loup", age:"≈ 40 ans",
-  aff:"Camp Anastasia · Croc de Fer", status:"Vivant", va:"Kenji Nomura",
+  aff:"Camp Anastasia · Croc de Fer", status:"Vivant", va:"Kenji Nomura", vf:"Antoine Tomé",
   abilities:["Grand sabre","Force et instinct de vétéran"],
   epi:"Le molosse d'Anastasia",
   quote:"",
