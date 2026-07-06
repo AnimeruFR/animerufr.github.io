@@ -12,6 +12,10 @@ import { RZ } from './data/data.js'
 
 import '../css/app.css'
 
+// Le JS s'exécute : on active le masquage des .reveal pour l'animation d'apparition.
+// (Si ce module ne se charge pas, .has-js est absent → contenu visible = fail-safe.)
+if (typeof document !== 'undefined') document.documentElement.classList.add('has-js')
+
 // Pré-rend TOUTES les routes (statiques + une par personnage et par arc) : chaque
 // page devient un vrai fichier HTML → liens directs fonctionnels sur GitHub Pages
 // (pas de 404 au rafraîchissement) et meilleur référencement.
