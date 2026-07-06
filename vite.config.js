@@ -4,9 +4,10 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { resolve } from 'path'
 
 export default defineConfig({
-  // Déployé sous https://animerufr.github.io/ReZero/ (GitHub Pages, dépôt « ReZero »).
-  // Pour un déploiement à la racine (dépôt renommé animerufr.github.io), mettre base: '/'.
-  base: '/ReZero/',
+  // Déploiement à la racine : https://animerufr.github.io/
+  // ⚠️ Nécessite que le dépôt GitHub soit nommé « animerufr.github.io ».
+  // (Pour un dépôt de projet servi sous /NOM/, remettre base: '/NOM/'.)
+  base: '/',
   plugins: [
     vue(),
     VitePWA({
